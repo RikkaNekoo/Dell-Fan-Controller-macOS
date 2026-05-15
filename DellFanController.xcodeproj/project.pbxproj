@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D1166B12F78149F0083375A /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D1166B02F78149F0083375A /* Config.xcconfig */; };
 		3DEA8FC22F78275C00C29137 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3DEA8FC12F78275100C29137 /* README.md */; };
+		8A7D110A9B7E4D8C8B6D3A01 /* SwiftIPMI in Frameworks */ = {isa = PBXBuildFile; productRef = 8A7D11099B7E4D8C8B6D3A01 /* SwiftIPMI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A7D110A9B7E4D8C8B6D3A01 /* SwiftIPMI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			);
 			name = DellFanController;
 			packageProductDependencies = (
+				8A7D11099B7E4D8C8B6D3A01 /* SwiftIPMI */,
 			);
 			productName = "Dell-Fan-Control-macOS";
 			productReference = 3DDAA5DF2F77AADD003AD224 /* Dell Fan Controller.app */;
@@ -104,6 +107,9 @@
 			);
 			mainGroup = 3DDAA5D62F77AADD003AD224;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8A7D11089B7E4D8C8B6D3A01 /* XCLocalSwiftPackageReference "IPMITool" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3DDAA5E02F77AADD003AD224 /* Products */;
 			projectDirPath = "";
@@ -280,7 +286,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = im.rikka.DellFanController.debug;
 				PRODUCT_NAME = "Dell Fan Controller";
 				REGISTER_APP_GROUPS = YES;
@@ -316,7 +322,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = im.rikka.DellFanController;
 				PRODUCT_NAME = "Dell Fan Controller";
 				REGISTER_APP_GROUPS = YES;
@@ -351,6 +357,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		8A7D11089B7E4D8C8B6D3A01 /* XCLocalSwiftPackageReference "IPMITool" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = IPMITool;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A7D11099B7E4D8C8B6D3A01 /* SwiftIPMI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A7D11089B7E4D8C8B6D3A01 /* XCLocalSwiftPackageReference "IPMITool" */;
+			productName = SwiftIPMI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DDAA5D72F77AADD003AD224 /* Project object */;
 }

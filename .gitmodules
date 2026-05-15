@@ -1,0 +1,3 @@
+[submodule "IPMITool"]
+	path = IPMITool
+	url = https://github.com/RikkaNekoo/Swift-IPMITool.git
