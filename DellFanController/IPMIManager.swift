@@ -18,16 +18,6 @@ struct SensorRecord: Identifiable {
 
 @MainActor
 final class IPMIManager: ObservableObject {
-    enum FetchTimeoutError: LocalizedError {
-        case sensorListTimeout(seconds: Int)
-
-        var errorDescription: String? {
-            switch self {
-            case let .sensorListTimeout(seconds):
-                return "sensorList timed out after \(seconds)s"
-            }
-        }
-    }
     @AppStorage("ipmi_ip") var ip = "192.168.1.100"
     @AppStorage("ipmi_user") var user = "root"
     @AppStorage("ipmi_password") var password = "rikka"
@@ -42,8 +32,7 @@ final class IPMIManager: ObservableObject {
             password: password,
             privilege: .administrator,
             cipherSuiteID: nil,
-            timeout: 2.0,
-            retries: 4,
+            timeout: 5.0,
             loggingEnabled: false
         )
     }
@@ -161,19 +150,7 @@ final class IPMIManager: ObservableObject {
             let client = makeClient()
             do {
                 try await client.connect()
-                let rows: [SensorRow] = try await withThrowingTaskGroup(of: [SensorRow].self) { group in
-                    group.addTask {
-                        try await client.sensorList()
-                    }
-                    group.addTask {
-                        try await Task.sleep(nanoseconds: 10_000_000_000)
-                        throw FetchTimeoutError.sensorListTimeout(seconds: 10)
-                    }
-
-                    let first = try await group.next()
-                    group.cancelAll()
-                    return first ?? []
-                }
+                let rows = try await client.sensorList()
                 await client.close()
 
                 var tempCount = 1
