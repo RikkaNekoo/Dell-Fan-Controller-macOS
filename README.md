@@ -1,5 +1,5 @@
-# Dell Fan Controller for macOS
-使用 Swift 编写的戴尔服务器风扇转速控制工具，包含我 vibe 的一个原生 Swift IPMITool，支持 x86_64 和 arm64  
+# Swift Dell Fan Controller
+使用 Swift 编写的戴尔服务器风扇转速控制工具，包含我 vibe 的一个原生 Swift IPMITool，支持 macOS 12+ 和 iOS/iPadOS 16+ 设备  
 使用前请确保 IPMI over LAN 已经开启（[官方教程](https://www.dell.com/support/manuals/zh-cn/poweredge-fx2/idrac8_2.30.30.30_ug/ipmi-%e8%ae%be%e7%bd%ae)）
 
 ## 编译环境
